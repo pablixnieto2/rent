@@ -1,0 +1,13 @@
+{% extends "base.html" %}  <!-- Asume que tienes un archivo base.html para extender -->
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ formset.management_form }}
+    {% for form in formset %}
+      {{ form.as_p }}
+    {% endfor %}
+    <button type="submit">Guardar Venta</button>
+</form>
+{% endblock %}
